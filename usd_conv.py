@@ -36,5 +36,11 @@ def get_eth_for_usd(usd_amount: float):
         print(f"Response Parsing Error: {e}")
         
     return None
-
+if __name__ == "__main__":
+    usd_amount = 100.0  # Example USD amount
+    eth_amount = get_eth_for_usd(usd_amount)
+    if eth_amount is not None:
+        print(f"USD {usd_amount} is approximately ETH {eth_amount:.6f}")
+    else:
+        print("Failed to retrieve ETH equivalent.")
 

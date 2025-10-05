@@ -43,7 +43,7 @@ def send_email(receiver_email: str, subject: str, body: str, sender_email: str, 
 
 if __name__ == "__main__":
     SENDER_EMAIL = 'boredman665@gmail.com'
-    SENDER_PASSWORD = '#######'
+    SENDER_PASSWORD = 'zakp nggx bgxs epsn'
     RECEIVER_EMAIL = "boredman665@gmail.com"  
 
     if not SENDER_EMAIL or not SENDER_PASSWORD:
