@@ -46,9 +46,13 @@ def key_gen(seed_phrase):
     public_key_hex = binascii.hexlify(pub_key.to_string("compressed")).decode('utf-8')
 
     print(f"Derived Private Key (hex): {private_key_hex}")
+    print("-" * 60)
+    print(pub_key)
+    print("-" * 60)
     print(f"Derived Public Key (compressed hex): {public_key_hex}")
     print("-" * 60)
-    return priv_key, pub_key
+    return priv_key, pub_key,public_key_hex
+
 
 def sign(message_to_sign, priv_key):
     try:
@@ -78,13 +82,17 @@ def verify_sign(message,signature,pub_key):
             print(f"An unexpected error occurred during verification: {e}")
 
     print("-" * 60)
-
+def gen_pub_key_from_hash(pubkey_hex):
+    public_key_bytes = binascii.unhexlify(pubkey_hex)
+    pub_key = ecdsa.VerifyingKey.from_string(public_key_bytes, curve=ecdsa.SECP256k1)
+    return pub_key
+    
 if __name__ == "__main__":
     bip39_words = get_wordlist()  
     seed_phrase = generate_mnemonic_phrase(bip39_words, num_words=12)
     print(f"Generated 12-Word Seed Phrase:\n'{seed_phrase}'")
     print("-" * 60)
-    priv_key, pub_key = key_gen(seed_phrase)
+    priv_key, pub_key,public_key_hex = key_gen(seed_phrase)
     message_to_sign = "rabndoms stinbgadgsmngdjasdgajgdj"
     sig=sign(message_to_sign,priv_key)
-    verify_sign(message_to_sign,sig,pub_key)
+    assert pub_key==gen_pub_key_from_hash(public_key_hex)
