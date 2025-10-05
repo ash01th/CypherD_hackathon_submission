@@ -24,3 +24,5 @@
 
 ![Alt text for the image](images/image.png)
 ![Alt text for the image](images/hackathon.gif)
+![Alt text for the image](images/import.png)
+![Alt text for the image](images/signup.png)
