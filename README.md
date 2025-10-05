@@ -21,3 +21,6 @@
 -   Use a key-value database to store transactions.
 -   Use Docker to create an image and deploy it on cloud platforms.
 -   Host a web server and UI to enable communication.
+
+![Alt text for the image](images/image.png)
+![Alt text for the image](images/hackathon.gif)
