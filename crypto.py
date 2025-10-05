@@ -95,4 +95,5 @@ if __name__ == "__main__":
     priv_key, pub_key,public_key_hex = key_gen(seed_phrase)
     message_to_sign = "rabndoms stinbgadgsmngdjasdgajgdj"
     sig=sign(message_to_sign,priv_key)
+    verify_sign(message_to_sign,sig,pub_key)
     assert pub_key==gen_pub_key_from_hash(public_key_hex)
