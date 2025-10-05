@@ -1,18 +1,23 @@
-# CypherD_hackathon_submission
-hackathon_submission
-# initial setup:
--run the db.py file to create user database and to populate sample data
--ensure the state.yaml file exists and is_logged_in field is set to false
--run the main.py file
--to check import wallet use the phrase which will be generated in the signup phase
-# implementd features:
--conversion from eth to usd (usd_conv.py)
--notifications via mail (mail_notification.py)
-both of the above features can be tested individually by simply running them
--cryptographically secure seed phrase generation using BIP-39 English wordlist and fallback if any error occurs
--cryptographically secure signing and sign verification using ecdsa on curve SECP256k1
--basic cli demo of eth transaction between two peers
-# future work
--use a keyvalue database to store transactions
--use docker to create image and deploy on cloud platforms
--host a webserver and ui to enable communication
+# CypherD Hackathon Submission
+
+## Initial Setup:
+
+1.  Run the `db.py` file to create the user database and to populate it with sample data.
+2.  Ensure the `state.yaml` file exists and the `is_logged_in` field is set to `false`.
+3.  Run the `main.py` file.
+4.  To check the "import wallet" feature, use the phrase that will be generated during the signup phase.
+
+## Implemented Features:
+
+-   **ETH to USD Conversion:** Conversion from ETH to USD is handled by `usd_conv.py`.
+-   **Email Notifications:** Notifications are sent via email using `mail_notification.py`.
+    -   *Both of the above features can be tested individually by simply running their respective Python files.*
+-   **Secure Seed Phrase Generation:** Cryptographically secure seed phrase generation using the BIP-39 English wordlist, with a fallback mechanism in case of errors.
+-   **Digital Signatures:** Cryptographically secure signing and signature verification using ECDSA on the `SECP256k1` curve.
+-   **CLI Demo:** A basic command-line interface demo of an ETH transaction between two peers.
+
+## Future Work
+
+-   Use a key-value database to store transactions.
+-   Use Docker to create an image and deploy it on cloud platforms.
+-   Host a web server and UI to enable communication.
