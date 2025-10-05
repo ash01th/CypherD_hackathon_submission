@@ -1,5 +1,6 @@
-is_logged_in: False
-username: user_7845
-emailid: user_7845@example.com
-private_key: 3a9e7f2b1d0c4e8a9f6b3c1d0e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f
-public_key: 8c7b6a5f4e3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b
+is_logged_in: true
+username: ash1
+emailid: null
+private_key: 7270f9b84c3f4011346a1b5027e8a3d339c6e30512e6f1b49f1eef10d1c42967
+public_key: 021b29a88ac62d70d0a33a3eea94d2a273627dbf76da7e3a106ff5e7f11c031ee1
+email_id: ashwanthlakshmikanth1234@gmail.com

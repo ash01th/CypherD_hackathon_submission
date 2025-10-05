@@ -13,16 +13,16 @@ def update_state(key, new_value,filepath='state.yaml'):
         with open(filepath, 'r') as file:
             data = yaml.safe_load(file)
         if key in data:
-            print(f"Updating key '{key}' from '{data[key]}' to '{new_value}'...")
+            #print(f"Updating key '{key}' from '{data[key]}' to '{new_value}'...")
             data[key] = new_value
         else:
-            print(f"Key '{key}' not found. Adding it to the file.")
+            #print(f"Key '{key}' not found. Adding it to the file.")
             data[key] = new_value
 
         with open(filepath, 'w') as file:
             yaml.dump(data, file, default_flow_style=False, sort_keys=False)
         
-        print("File updated successfully.")
+       # print("File updated successfully.")
 
     except FileNotFoundError:
         print(f"Error: The file '{filepath}' was not found.")

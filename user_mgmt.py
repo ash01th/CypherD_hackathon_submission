@@ -35,8 +35,6 @@ def check_bal(sender_public_key,amount):
     user_data=fetch_user_from_pub_key(sender_public_key)
     if user_data:
         if user_data[3]>=amount:
-            new_balance=user_data[3]-amount
-            insert_record((user_data[0],user_data[1],user_data[2],new_balance))
             return True
         else:
             return False
@@ -58,14 +56,15 @@ def perform_transaction(sender_public_key,receiver_public_key,amount,type="ETH")
     if not sender_data or not recv_data:
         print("Sender or receiver not found.")
         return
-    if type!="ETH":
+    if type=="ETH":
         if check_bal(sender_public_key,amount):
             sig,type,amt=sign_transaction("tx_data",get_state("private_key"),amount,type)
             try:
+                print("verifying signature...")
                 verify_sign("transaction",sig,recv_data[2]) 
                 print("Signature verified.comitting transaction...")
                 update_balance(sender_data[0],sender_data[3]-amt)
-                update_balance(receiver_public_key,sender_data[3]+amt)
+                update_balance(recv_data[0],recv_data[3]+amt)
 
             except Exception as e:
                 print(f"Signature verification failed: {e}")

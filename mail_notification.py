@@ -4,6 +4,7 @@ import ssl
 from email.message import EmailMessage
 
 def send_email(receiver_email: str, subject: str, body: str, sender_email: str, sender_password: str) -> bool:
+    
     """
     Sends an email using Gmail's SMTP server.
 

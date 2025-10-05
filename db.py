@@ -58,7 +58,19 @@ def update_balance(username, new_balance):
     finally:
         if conn:
             conn.close()
-
+def fetch_user_from_name(username):
+    try:
+        conn = sqlite3.connect('user_data.db')
+        cursor = conn.cursor()
+        query = "SELECT * FROM users WHERE username = ?;" 
+        cursor.execute(query, (username,))
+        user_data = cursor.fetchone()
+    except sqlite3.Error as e:
+        print(f"An error occurred: {e}")
+    finally:
+        if conn:
+            conn.close()
+    return user_data
 if __name__ == "__main__":
     create_table()
     user_datas=[("ash", "boredman665@gmail.com", "02a3364170c39c9f78bba2a901b3b4e80c3dc07188a3f2c4b7641ab64862a8c008", 3.5)

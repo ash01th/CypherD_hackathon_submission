@@ -11,6 +11,9 @@ def generate_mnemonic_phrase(wordlist, num_words=12):
     if not wordlist:
         raise ValueError("Wordlist cannot be empty.")
     chosen_words = [secrets.choice(wordlist) for _ in range(num_words)]
+    print("seed phrase is ")
+    print(" ".join(chosen_words))
+    print("make sure to save it securely and not lose it ")
     return " ".join(chosen_words)
 
 def get_wordlist():
@@ -37,7 +40,6 @@ def key_gen(seed_phrase):
     seed_bytes = seed_phrase.encode('utf-8')
     sha256_hash = hashlib.sha256(seed_bytes)
     private_key_int = int.from_bytes(sha256_hash.digest(), 'big')
-    # The hash output IS the private key.
     priv_key = ecdsa.SigningKey.from_secret_exponent(private_key_int, curve=ecdsa.SECP256k1)
     pub_key = priv_key.verifying_key # The public key
 
